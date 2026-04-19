@@ -5,23 +5,20 @@ function typing() {
     if (index < text.length) {
         document.getElementById("typing-text").innerHTML += text.charAt(index);
         index++;
-        setTimeout(typing, 50; // Tốc độ gõ chữ (ms)
+        setTimeout(typing, 50); // Đã thêm dấu đóng ngoặc ) ở đây
     }
 }
 
-// Chạy hiệu ứng gõ chữ khi trang web tải xong
+// Chạy hiệu ứng khi trang tải xong
 window.onload = typing;
 
-// Hiệu ứng pháo hoa đơn giản khi nhấn nút
+// Hiệu ứng khi nhấn nút
 const btn = document.getElementById('btn-open');
-const canvas = document.getElementById('fireworks');
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
 btn.addEventListener('click', () => {
-    alert("Chúc mừng sinh nhật! Hy vọng bạn thích món quà nhỏ này! 🎉");
-    // Bạn có thể thêm code hiệu ứng pháo hoa phức tạp hơn ở đây
-    createFirework();
+    alert("Chúc mừng sinh nhật! 🎉");
+    // Tạo hiệu ứng pháo hoa đơn giản bằng màu sắc nền
+    document.body.style.backgroundColor = "#f8bbd0";
+    setTimeout(() => {
+        document.body.style.backgroundColor = "#fce4ec";
+    }, 500);
 });
