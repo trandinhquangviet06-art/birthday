@@ -1,4 +1,4 @@
-const text = "Chúc bạn một tuổi mới thật rực rỡ, luôn vui vẻ, hạnh phúc và đạt được mọi mục tiêu của mình nhé! Mỗi ngày trôi qua đều là một món quà. Happy Birthday!";
+const text = "Chúc em một tuổi mới thật rực rỡ, luôn vui vẻ, hạnh phúc và đạt được mọi mục tiêu của mình nhé! Mỗi ngày trôi qua đều là một món quà. Happy Birthday!";
 let index = 0;
 
 function typing() {
@@ -10,15 +10,26 @@ function typing() {
     }
 }
 
-// Chạy khi trang web tải xong
+// Chạy hiệu ứng gõ chữ khi trang web tải xong
 document.addEventListener('DOMContentLoaded', (event) => {
     typing();
 });
 
-// Hiệu ứng khi nhấn nút
+// --- Xử lý khi bấm nút nhận quà ---
 const btn = document.getElementById('btn-open');
+const modal = document.getElementById('gift-modal');
+const btnClose = document.getElementById('btn-close');
+
 if(btn) {
     btn.addEventListener('click', () => {
-        alert("Chúc mừng sinh nhật bạn eiu! 🎉🎁");
+        // Hiện hộp quà ra (xóa class hidden)
+        if(modal) modal.classList.remove('hidden');
+    });
+}
+
+if(btnClose) {
+    btnClose.addEventListener('click', () => {
+        // Ẩn hộp quà đi (thêm class hidden)
+        if(modal) modal.classList.add('hidden');
     });
 }
