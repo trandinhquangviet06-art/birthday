@@ -2,23 +2,23 @@ const text = "Chúc bạn một tuổi mới thật rực rỡ, luôn vui vẻ, 
 let index = 0;
 
 function typing() {
-    if (index < text.length) {
-        document.getElementById("typing-text").innerHTML += text.charAt(index);
+    const element = document.getElementById("typing-text");
+    if (element && index < text.length) {
+        element.innerHTML += text.charAt(index);
         index++;
-        setTimeout(typing, 50); // Đã thêm dấu đóng ngoặc ) ở đây
+        setTimeout(typing, 50);
     }
 }
 
-// Chạy hiệu ứng khi trang tải xong
-window.onload = typing;
+// Chạy khi trang web tải xong
+document.addEventListener('DOMContentLoaded', (event) => {
+    typing();
+});
 
 // Hiệu ứng khi nhấn nút
 const btn = document.getElementById('btn-open');
-btn.addEventListener('click', () => {
-    alert("Chúc mừng sinh nhật! 🎉");
-    // Tạo hiệu ứng pháo hoa đơn giản bằng màu sắc nền
-    document.body.style.backgroundColor = "#f8bbd0";
-    setTimeout(() => {
-        document.body.style.backgroundColor = "#fce4ec";
-    }, 500);
-});
+if(btn) {
+    btn.addEventListener('click', () => {
+        alert("Chúc mừng sinh nhật bạn eiu! 🎉🎁");
+    });
+}
