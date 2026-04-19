@@ -1,156 +1,27 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Quicksand', sans-serif;
-    overflow: hidden;
-}
-
-.container {
-    z-index: 10;
-    text-align: center;
-}
-
-.card {
-    background: white;
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    max-width: 400px;
-    transform: scale(0.9);
-    animation: appear 1s forwards ease-out;
-}
-
-@keyframes appear {
-    to { transform: scale(1); }
-}
-
-.cake {
-    font-size: 5rem;
-    margin-bottom: 1rem;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-h1 {
-    font-family: 'Dancing Script', cursive;
-    color: #d81b60;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.message-box {
-    min-height: 80px;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-button {
-    background: #d81b60;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #ad1457;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(216, 27, 96, 0.3);
-}
-
-#fireworks {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-/* --- GIAO DIỆN HỘP QUÀ NỔI LÊN --- */
-.hidden {
-    display: none !important;
-}
-
-#gift-modal {
-    position: fixed;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-}
-
-.modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: center;
-    max-width: 90%;
-    width: 350px;
-    animation: popUp 0.5s ease-out;
-}
-
-#cake-3d {
-    width: 150px;
-    margin-top: 15px;
-}
-
-@keyframes popUp {
-    from { transform: scale(0.5); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-#btn-close {
-    margin-top: 20px;
-    background: #555;
-}
-
-#btn-close:hover {
-    background: #333;
-}
-
 /* --- ALBUM ẢNH LƯỚT NGANG --- */
 .image-gallery {
     display: flex;
-    gap: 10px;
     overflow-x: auto;
-    padding: 10px 0;
+    scroll-snap-type: x mandatory; /* Giúp lướt khựng lại ở từng ảnh rất mượt */
+    gap: 15px;
+    padding-bottom: 10px;
     margin-top: 10px;
     max-width: 100%;
 }
 
 .image-gallery img {
-    height: 140px;
+    width: 100%; /* Chiếm toàn bộ khung để mỗi lần xem 1 ảnh */
+    height: 350px; /* Kéo dài ảnh ra cho đẹp */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     flex-shrink: 0;
-    object-fit: cover;
+    object-fit: cover; /* Giữ tỷ lệ khuôn mặt, không bị méo */
+    scroll-snap-align: center; /* Trọng tâm vào giữa ảnh khi lướt */
 }
 
+/* Thanh cuộn ngang */
 .image-gallery::-webkit-scrollbar {
-    height: 6px;
+    height: 8px;
 }
 .image-gallery::-webkit-scrollbar-thumb {
     background: #d81b60;
