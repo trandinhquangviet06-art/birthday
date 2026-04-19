@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    z-index: 10;
+    text-align: center;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 400px;
+    transform: scale(0.9);
+    animation: appear 1s forwards ease-out;
+}
+
+@keyframes appear {
+    to { transform: scale(1); }
+}
+
+.cake {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: #d81b60;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.message-box {
+    min-height: 80px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+button {
+    background: #d81b60;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ad1457;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(216, 27, 96, 0.3);
+}
+
+#fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
