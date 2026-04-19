@@ -160,15 +160,33 @@ button:hover {
     border-radius: 10px;
 }
 
-/* Bánh 3D GIF */
-#cake-3d {
-    width: 180px;
-    margin-top: 20px;
+/* --- BÁNH SINH NHẬT 3 TẦNG LỘNG LẪY --- */
+#grand-cake {
+    width: 200px; /* Độ to của bánh sinh nhật 3 tầng lộng lẫy */
+    margin-top: 25px; /* Tăng khoảng cách với album ảnh */
+    margin-bottom: 20px; /* Khoảng cách với nút đóng */
+    animation: bounceInCake 1s ease-out, shineCake 3s infinite alternate; /* Hoạt hình xuất hiện và lấp lánh */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Hoạt hình xuất hiện */
+@keyframes bounceInCake {
+    from { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Hoạt hình lấp lánh nhẹ cho chiếc bánh thêm lộng lẫy */
+@keyframes shineCake {
+    from { filter: brightness(1) drop-shadow(0 0 0 transparent); }
+    to { filter: brightness(1.2) drop-shadow(0 0 8px #ffd700); } /* Ánh sáng vàng lấp lánh */
 }
 
 /* Nút đóng của modal */
 #btn-close {
-    margin-top: 25px;
+    margin-top: 20px;
     background: #666;
     font-size: 1rem;
     padding: 12px 25px;
