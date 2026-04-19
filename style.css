@@ -1,8 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Nền độ dốc hồng/tím nhẹ */
+    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden;
+}
+
+/* --- GIAO DIỆN TRANG CHÍNH (THẺ FORM) --- */
+.container {
+    z-index: 10;
+    text-align: center;
+}
+
+.card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 450px;
+    transform: scale(0.9);
+    animation: appear 1s forwards ease-out;
+}
+
+@keyframes appear {
+    to { transform: scale(1); }
+}
+
+.cake-emoji {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: #d81b60;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.message-box {
+    min-height: 100px; /* Chiều cao cố định để không bị giật khi chữ chạy */
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+button {
+    background: #d81b60;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #ad1457;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(216, 27, 96, 0.4);
+}
+
+/* Canvas pháo hoa */
+#fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* --- GIAO DIỆN CỬA SỔ NỔI (MODAL) --- */
+#gift-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Nền đen mờ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    animation: popUp 0.5s ease-out;
+}
+
+@keyframes popUp {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.8rem;
+}
+
 /* --- ALBUM ẢNH LƯỚT NGANG --- */
 .image-gallery {
     display: flex;
     overflow-x: auto;
-    scroll-snap-type: x mandatory; /* Giúp lướt khựng lại ở từng ảnh rất mượt */
+    scroll-snap-type: x mandatory;
     gap: 15px;
     padding-bottom: 10px;
     margin-top: 10px;
@@ -10,20 +142,38 @@
 }
 
 .image-gallery img {
-    width: 100%; /* Chiếm toàn bộ khung để mỗi lần xem 1 ảnh */
-    height: 350px; /* Kéo dài ảnh ra cho đẹp */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 100%; /* Mỗi ảnh chiếm toàn bộ khung */
+    height: 300px; /* Chiều cao ảnh */
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     flex-shrink: 0;
-    object-fit: cover; /* Giữ tỷ lệ khuôn mặt, không bị méo */
+    object-fit: cover; /* Giữ tỷ lệ, cắt gọn */
     scroll-snap-align: center; /* Trọng tâm vào giữa ảnh khi lướt */
 }
 
-/* Thanh cuộn ngang */
+/* Thanh cuộn ngang màu hồng cute */
 .image-gallery::-webkit-scrollbar {
     height: 8px;
 }
 .image-gallery::-webkit-scrollbar-thumb {
     background: #d81b60;
     border-radius: 10px;
+}
+
+/* Bánh 3D GIF */
+#cake-3d {
+    width: 180px;
+    margin-top: 20px;
+}
+
+/* Nút đóng của modal */
+#btn-close {
+    margin-top: 25px;
+    background: #666;
+    font-size: 1rem;
+    padding: 12px 25px;
+}
+
+#btn-close:hover {
+    background: #444;
 }
